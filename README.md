@@ -1,8 +1,17 @@
 # Zephyr™ Mechanical Keyboard (ZMK) Firmware
 
-[![Discord](https://img.shields.io/discord/719497620560543766)](https://zmk.dev/community/discord/invite)
-[![Build](https://github.com/zmkfirmware/zmk/workflows/Build/badge.svg)](https://github.com/zmkfirmware/zmk/actions)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+This is a fork of ZMK with support for a custom tidbit-like numpad. The
+differences from original tidbit are:
+- usage of Gateron switches
+- Waveshare RP2040-Zero instead of custom MCU board
+
+The build is based on [Zephyr 3.7.1 with RP2040-Zero support](https://github.com/dseight/zephyr/tree/zephyr-v3.7.1-rp2040-zero).
+
+To build, run:
+
+    west build -p -b rp2040_zero -- -DSHIELD=tidbit_gateron
+
+---
 
 [ZMK Firmware](https://zmk.dev/) is an open source ([MIT](LICENSE)) keyboard firmware built on the [Zephyr™ Project](https://www.zephyrproject.org/) Real Time Operating System (RTOS). ZMK's goal is to provide a modern, wireless, and powerful firmware free of licensing issues.
 
