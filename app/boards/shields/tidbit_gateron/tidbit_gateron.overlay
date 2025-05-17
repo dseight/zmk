@@ -20,6 +20,7 @@
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
         zmk,underglow = &led_strip;
+        zmk,led-numlock = &ws2812;
     };
 
     kscan0: kscan {
