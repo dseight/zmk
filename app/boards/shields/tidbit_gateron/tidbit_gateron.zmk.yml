@@ -1,0 +1,9 @@
+file_format: "1"
+id: tidbit_gateron
+name: Tidbit Gateron Numpad
+type: shield
+requires: [rp2040_zero]
+features:
+  - keys
+  - encoder
+  - display
