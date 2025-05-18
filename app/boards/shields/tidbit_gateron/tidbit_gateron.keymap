@@ -21,6 +21,39 @@
 };
 
 / {
+    macros {
+        tmux_window_prev: tmux_window_prev {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp B>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &kp P>
+                ;
+        };
+
+        tmux_window_next: tmux_window_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp B>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &kp N>
+                ;
+        };
+    };
+
+    behaviors {
+        tmux_switcher: tmux_switcher {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "TMUX_SWITCHER";
+            #sensor-binding-cells = <0>;
+            bindings = <&tmux_window_prev>, <&tmux_window_next>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -33,7 +66,7 @@
                 &kp BSPC    &kp KP_N0   &kp KP_DOT      &kp PRINTSCREEN
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
+            sensor-bindings = <&tmux_switcher>;
         };
     };
 };
